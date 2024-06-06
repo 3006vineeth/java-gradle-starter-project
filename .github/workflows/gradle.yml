@@ -22,6 +22,12 @@ jobs:
         distribution: 'temurin'
         java-version: '17'
 
+    - name: Install Xvfb
+      run: sudo apt-get install -y xvfb
+
+    - name: Start Xvfb
+      run: Xvfb :99 -ac & export DISPLAY=:99
+
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
 
@@ -35,4 +41,4 @@ jobs:
       run: ./gradlew copyNatives
 
     - name: Run application
-      run: ./gradlew run
+      run: DISPLAY=:99 ./gradlew run
