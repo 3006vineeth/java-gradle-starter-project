@@ -37,8 +37,7 @@ jobs:
     - name: Build with Gradle
       run: ./gradlew clean build
 
-    - name: Run tests
-      run: ./gradlew test
+  
 
     - name: Unpack native libraries
       run: ./gradlew copyNatives
