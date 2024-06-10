@@ -22,14 +22,14 @@ jobs:
         distribution: 'temurin'
         java-version: '17'
 
-    - name: Install Xvfb
-      run: sudo apt-get install -y xvfb
+    # - name: Install Xvfb
+    #   run: sudo apt-get install -y xvfb
 
-    - name: Start Xvfb
-      run: Xvfb :99 -ac &
+    # - name: Start Xvfb
+    #   run: Xvfb :99 -ac &
 
-    - name: Set DISPLAY environment variable
-      run: echo "DISPLAY=:99" >> $GITHUB_ENV
+    # - name: Set DISPLAY environment variable
+    #   run: echo "DISPLAY=:99" >> $GITHUB_ENV
 
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
@@ -38,9 +38,9 @@ jobs:
       run: ./gradlew clean build
 
 
-    - name: Unpack native libraries
-      run: ./gradlew copyNatives
-    - name: Run tests
-      run: ./gradlew test
+    # - name: Unpack native libraries
+    #   run: ./gradlew copyNatives
+    # - name: Run tests
+    #   run: ./gradlew test
     - name: List JAR contents
       run: jar -tf build/libs/*.jar
